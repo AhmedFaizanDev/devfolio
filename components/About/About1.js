@@ -45,25 +45,26 @@ const About1 = ({ clientHeight }) => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full relative select-none">
-      <div
-        className={`${
-          clientHeight > 650 ? "pt-28 pb-16" : "pt-80 pb-72"
-        } section-container`}
-      >
-        <h1
-          ref={quoteRef}
-          className="font-medium text-[2.70rem] md:text-6xl lg:text-[4rem] text-center"
-        >
-          <span className="about-1 leading-tight">
-            Hey, I'm Mohammed Faizan Ahmed, a passionate and curious Computer Science Engineering student at Mahindra University, Hyderabad (Class of 2027) with a CGPA of 7.2 (and climbing 😎). I'm a backend developer, coder, and UI/UX hobbyist, blending problem-solving with clean design. Whether it's coding hardcore in C++ or whipping up sleek interfaces in Figma, I live for the build.
-          </span>
-          <span className="about-2 leading-tight">
-            I love building things that make life simpler, and I'm always exploring new tech, from backend APIs to beautiful UIs. Let's create something awesome!
-          </span>
-        </h1>
-      </div>
-    </section>
+<section ref={sectionRef} className="w-full relative select-none">
+  <div
+    className={`${
+      clientHeight > 650 ? "pt-28 pb-16" : "pt-80 pb-72"
+    } section-container`}
+  >
+    <h1
+      ref={quoteRef}
+      className="font-medium text-[2.70rem] md:text-6xl lg:text-[4rem] text-center"
+    >
+      <span className="about-1 leading-tight">
+        Hey, I'm Mohammed Faizan Ahmed, a CS Major student and a backend developer passionate about automation, AI, and scalable systems.
+      </span>
+      <span className="about-2 leading-tight">
+        I build reliable APIs, automation workflows, and intelligent systems. Constantly exploring backend technologies, AI/ML, and problem-solving through code.
+      </span>
+    </h1>
+  </div>
+</section>
+
   );
 };
 

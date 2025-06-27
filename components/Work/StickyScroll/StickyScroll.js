@@ -20,10 +20,11 @@ const StickyScroll = ({ contentItems }) => {
     offset: ["start start", "end start"],
   });
 
-  const cardLength = contentItems.length;
+  const safeContentItems = Array.isArray(contentItems) ? contentItems : [];
+  const cardLength = safeContentItems.length;
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const cardsBreakpoints = contentItems.map(
+    const cardsBreakpoints = safeContentItems.map(
       (_, index) => index / cardLength - 0.1
     );
 
@@ -66,7 +67,7 @@ const StickyScroll = ({ contentItems }) => {
       >
         <div className="flex items-start px-4">
           <div className="max-w-2xl">
-            {contentItems.map((item, index) => (
+            {safeContentItems.map((item, index) => (
               <div key={item.title + index} className="my-8">
                 <motion.h2
                   initial={{
@@ -102,7 +103,7 @@ const StickyScroll = ({ contentItems }) => {
           }}
           className="hidden lg:block h-60 w-80 rounded-xl bg-white sticky top-10 overflow-hidden"
         >
-          {contentItems[activeCard].content ?? null}
+          {safeContentItems[activeCard]?.content ?? null}
         </motion.div>
       </motion.div>
     </div>

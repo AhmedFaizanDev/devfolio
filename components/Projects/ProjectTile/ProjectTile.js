@@ -11,17 +11,16 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
     additionalClasses = classes;
   }
 
-  const options = {
-    max: 10,
-    speed: 400,
-    glare: true,
-    "max-glare": 0.2,
-    gyroscope: false,
-  };
-
   useEffect(() => {
+    const options = {
+      max: 10,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.2,
+      gyroscope: false,
+    };
     VanillaTilt.init(projectCard.current, options);
-  }, [projectCard, options]);
+  }, [projectCard]);
 
   return (
     <a

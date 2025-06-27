@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Filter from "bad-words";
 import toast, { Toaster } from "react-hot-toast";
-import Fade from "react-reveal/Fade";
+import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import mail from "./mailer";
@@ -252,117 +252,129 @@ const Contact = () => {
     <section
       ref={sectionRef}
       id={MENULINKS[4].ref}
-      className="mt-30 w-full relative select-none bg-black pt-20 sm:pt-10 md:pt-5 lg:pt-1 pb-20"
+      className="section-container min-h-screen flex flex-col justify-center items-center"
     >
-      <div>
-        <Toaster toastOptions={toastOptions} />
-      </div>
-      <div className="section-container flex flex-col justify-center">
-        <div className="flex flex-col contact-wrapper">
-          <div className="flex flex-col">
-            <p className="uppercase tracking-widest text-gray-light-1 staggered-reveal">
-              CONTACT
-            </p>
-            <h1 className="text-6xl mt-2 font-medium text-gradient w-fit staggered-reveal">
-              Contact
-            </h1>
+      <motion.div
+        initial={{ opacity: 0, y: 64 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="w-full"
+      >
+        <div>
+          <Toaster toastOptions={toastOptions} />
+        </div>
+        <div className="section-container flex flex-col justify-center">
+          <div className="flex flex-col contact-wrapper">
+            <div className="flex flex-col">
+              <p className="uppercase tracking-widest text-gray-light-1 staggered-reveal">
+                CONTACT
+              </p>
+              <h1 className="text-6xl mt-2 font-medium text-gradient w-fit staggered-reveal">
+                Contact
+              </h1>
+            </div>
+            <h2 className="text-[1.65rem] font-medium md:max-w-lg w-full mt-2 staggered-reveal">
+              Get In Touch.{" "}
+            </h2>
           </div>
-          <h2 className="text-[1.65rem] font-medium md:max-w-lg w-full mt-2 staggered-reveal">
-            Get In Touch.{" "}
-          </h2>
-        </div>
 
-        <form className="pt-10 sm:mx-auto sm:w-[30rem] md:w-[35rem] staggered-reveal">
-          <Fade bottom distance={"4rem"}>
-            <div className="relative">
-              <input
-                type="text"
-                id="name"
-                className="block w-full h-12 sm:h-14 px-4 text-xl sm:text-2xl font-mono outline-none border-2 border-purple bg-transparent rounded-[0.6rem] transition-all duration-200"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-              <label
-                htmlFor="name"
-                className="absolute top-0 left-0 h-full flex items-center pl-4 text-lg font-mono transform transition-all"
-              >
-                Name
-              </label>
-            </div>
+          <form className="pt-10 sm:mx-auto sm:w-[30rem] md:w-[35rem] staggered-reveal">
+            <motion.div
+              initial={{ opacity: 0, y: 64 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="w-full"
+            >
+              <div className="relative">
+                <input
+                  type="text"
+                  id="name"
+                  className="block w-full h-12 sm:h-14 px-4 text-xl sm:text-2xl font-mono outline-none border-2 border-purple bg-transparent rounded-[0.6rem] transition-all duration-200"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+                <label
+                  htmlFor="name"
+                  className="absolute top-0 left-0 h-full flex items-center pl-4 text-lg font-mono transform transition-all"
+                >
+                  Name
+                </label>
+              </div>
 
-            <div className="relative mt-14">
-              <input
-                type="text"
-                id="email"
-                className="block w-full h-12 sm:h-14 px-4 text-xl sm:text-2xl font-mono outline-none border-2 border-purple bg-transparent rounded-[0.6rem] transition-all duration-200"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-              <label
-                htmlFor="email"
-                className="absolute top-0 left-0 h-full flex items-center pl-4 text-lg font-mono transform transition-all"
-              >
-                Email
-              </label>
-            </div>
+              <div className="relative mt-14">
+                <input
+                  type="text"
+                  id="email"
+                  className="block w-full h-12 sm:h-14 px-4 text-xl sm:text-2xl font-mono outline-none border-2 border-purple bg-transparent rounded-[0.6rem] transition-all duration-200"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+                <label
+                  htmlFor="email"
+                  className="absolute top-0 left-0 h-full flex items-center pl-4 text-lg font-mono transform transition-all"
+                >
+                  Email
+                </label>
+              </div>
 
-            <div className="relative mt-14">
-              <textarea
-                id="message"
-                className="block w-full h-auto min-h-[10rem] max-h-[20rem] sm:h-14 py-2 px-4 text-xl sm:text-2xl font-mono outline-none border-2 border-purple bg-transparent rounded-[0.6rem] transition-all duration-200"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              />
-              <label
-                htmlFor="message"
-                className="absolute top-0 left-0 h-14 flex items-center pl-4 text-lg font-mono transform transition-all"
-              >
-                Message
-              </label>
-            </div>
-          </Fade>
+              <div className="relative mt-14">
+                <textarea
+                  id="message"
+                  className="block w-full h-auto min-h-[10rem] max-h-[20rem] sm:h-14 py-2 px-4 text-xl sm:text-2xl font-mono outline-none border-2 border-purple bg-transparent rounded-[0.6rem] transition-all duration-200"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                />
+                <label
+                  htmlFor="message"
+                  className="absolute top-0 left-0 h-14 flex items-center pl-4 text-lg font-mono transform transition-all"
+                >
+                  Message
+                </label>
+              </div>
+            </motion.div>
 
-          {mailerResponse !== "not initiated" &&
-            (mailerResponse === "success" ? (
-              <div className="hidden">{success()}</div>
-            ) : (
-              <div className="hidden">{error()}</div>
-            ))}
-        </form>
-        <div className="mt-9 mx-auto link">
-          <button
-            ref={buttonElementRef}
-            className={styles.button}
-            disabled={
-              formData.name === "" ||
-              formData.email === "" ||
-              formData.message === ""
-                ? true
-                : false
-            }
-            onClick={handleSubmit}
-          >
-            <span>Send -&gt;</span>
-            <span className={styles.success}>
-              <svg viewBox="0 0 16 16">
-                <polyline points="3.75 9 7 12 13 5"></polyline>
+            {mailerResponse !== "not initiated" &&
+              (mailerResponse === "success" ? (
+                <div className="hidden">{success()}</div>
+              ) : (
+                <div className="hidden">{error()}</div>
+              ))}
+          </form>
+          <div className="mt-9 mx-auto link">
+            <button
+              ref={buttonElementRef}
+              className={styles.button}
+              disabled={
+                formData.name === "" ||
+                formData.email === "" ||
+                formData.message === ""
+                  ? true
+                  : false
+              }
+              onClick={handleSubmit}
+            >
+              <span>Send -&gt;</span>
+              <span className={styles.success}>
+                <svg viewBox="0 0 16 16">
+                  <polyline points="3.75 9 7 12 13 5"></polyline>
+                </svg>
+                Sent
+              </span>
+              <svg className={styles.trails} viewBox="0 0 33 64">
+                <path d="M26,4 C28,13.3333333 29,22.6666667 29,32 C29,41.3333333 28,50.6666667 26,60"></path>
+                <path d="M6,4 C8,13.3333333 9,22.6666667 9,32 C9,41.3333333 8,50.6666667 6,60"></path>
               </svg>
-              Sent
-            </span>
-            <svg className={styles.trails} viewBox="0 0 33 64">
-              <path d="M26,4 C28,13.3333333 29,22.6666667 29,32 C29,41.3333333 28,50.6666667 26,60"></path>
-              <path d="M6,4 C8,13.3333333 9,22.6666667 9,32 C9,41.3333333 8,50.6666667 6,60"></path>
-            </svg>
-            <div className={styles.plane}>
-              <div className={styles.left} />
-              <div className={styles.right} />
-            </div>
-          </button>
+              <div className={styles.plane}>
+                <div className={styles.left} />
+                <div className={styles.right} />
+              </div>
+            </button>
+          </div>
         </div>
-      </div>
+      </motion.div>
       <style jsx global>{`
         input,
         label,

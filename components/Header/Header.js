@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Howl } from "howler";
 import SoundBar from "./SoundBar/SoundBar";
+import ResumeIcon from "../../public/skills/resume.svg";
 
 const multiPop = new Howl({
   src: ["/sounds/multi-pop.mp3"],
@@ -40,6 +41,21 @@ const Header = ({ children }) => {
           />
         </a>
         <div className="outer-menu relative flex items-center gap-8 z-[1]">
+          <a
+            href="https://drive.google.com/file/d/10pUZxcrjwAF6578CzQFhxGK2C5BMg2A-/view?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link flex items-center"
+            title="Resume"
+          >
+            <Image
+              src={ResumeIcon}
+              alt="Resume"
+              width={28}
+              height={28}
+              style={{ marginRight: 8 }}
+            />
+          </a>
           <SoundBar />
           <input
             ref={inputRef}

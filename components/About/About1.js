@@ -56,7 +56,7 @@ const About1 = ({ clientHeight }) => {
       className="font-medium text-[2.70rem] md:text-6xl lg:text-[4rem] text-center"
     >
       <span className="about-1 leading-tight">
-        Hey, I&apos;m Mohammed Faizan Ahmed, a CS Major student and a backend developer passionate about automation, AI, and scalable systems.
+        Hey, I&apos;m faizan, a CS Major student and a backend developer passionate about automation, AI, and scalable systems.
       </span>
       <span className="about-2 leading-tight">
         I build reliable APIs, automation workflows, and intelligent systems. Constantly exploring backend technologies, AI/ML, and problem-solving through code.

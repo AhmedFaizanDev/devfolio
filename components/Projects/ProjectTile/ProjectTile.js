@@ -21,7 +21,7 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
 
   useEffect(() => {
     VanillaTilt.init(projectCard.current, options);
-  }, [projectCard]);
+  }, [projectCard, options]);
 
   return (
     <a
@@ -42,10 +42,13 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
           background: `linear-gradient(90deg, ${gradient[0]} 0%, ${gradient[1]} 100%)`,
         }}
       >
-        <img
+        <Image
           src="/project-bg.svg"
           alt="project"
+          fill
           className="absolute w-full h-full top-0 left-0 object-cover opacity-30"
+          style={{ objectFit: 'cover', opacity: 0.3 }}
+          priority
         />
         <Image
           src={image}
@@ -80,13 +83,15 @@ const ProjectTile = ({ project, classes, isDesktop }) => {
         >
           <div className="flex flex-col pb-8">
             {project.tech.map((el, i) => (
-              <img
+              <Image
                 className={`${i % 2 === 0 && "ml-16"} mb-4`}
                 src={`/projects/tech/${el}.svg`}
                 alt={el}
                 height={45}
                 width={45}
                 key={el}
+                style={{ objectFit: 'contain' }}
+                loading="lazy"
               />
             ))}
           </div>
